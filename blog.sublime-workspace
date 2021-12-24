@@ -1,0 +1,217 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"head",
+				"header"
+			],
+			[
+				"verbo",
+				"verbose_name_plural"
+			],
+			[
+				"verb",
+				"verbose_name"
+			],
+			[
+				"url",
+				"urlpatterns"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/doz/blog"
+	],
+	"file_history":
+	[
+		"/home/doz/boys/dossier/templates/layout/basic.html",
+		"/home/doz/boys/dossier/views.py",
+		"/home/doz/newfolder/home.html",
+		"/home/doz/newfolder/css/style.css",
+		"/home/doz/newfolder/js/script.js",
+		"/home/doz/startapp/bboard/urls.py",
+		"/home/doz/startapp/bboard/models.py",
+		"/home/doz/startapp/manage.py",
+		"/home/doz/startapp/startapp/urls.py",
+		"/home/doz/startapp/bboard/forms.py",
+		"/home/doz/startapp/bboard/templates/bboard/static/bboard/style.css",
+		"/home/doz/startapp/startapp/settings.py",
+		"/home/doz/startapp/bboard/admin.py",
+		"/home/doz/startapp/bboard/views.py",
+		"/home/doz/startapp/bboard/templates/layout/basic.html",
+		"/home/doz/startapp/bboard/static/bboard/style.css",
+		"/home/doz/startapp/bboard/templates/bboard/create.html",
+		"/home/doz/startapp/bboard/templates/bboard/by_rubric.html",
+		"/home/doz/startapp/bboard/templates/bboard/index.html",
+		"/home/doz/startapp/bboard/templates/bboard/static/style.css",
+		"/home/doz/git_tutorial/work/hello/hello.html",
+		"/home/doz/lol25/lolstat/urls.py",
+		"/home/doz/lol25/lolstat/models.py",
+		"/home/doz/lol25/lol25/urls.py",
+		"/home/doz/lol25/lolstat/forms.py",
+		"/home/doz/lol25/lolstat/views.py",
+		"/home/doz/lol25/lol25/settings.py"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"logo",
+			"ru",
+			"eng",
+			"eng-us"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "blog.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 242.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
