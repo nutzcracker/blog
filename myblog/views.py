@@ -1,10 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import Dossier
+from django.core.paginator import Paginator
 
 class MainView(View):
     def get(self, request, *args, **kwargs):
         dossiers = Dossier.objects.all()
-        return render(request,'myblog/home.html', context={'dossiers': dossiers}
+        paginator = Paginator(dossiers, 3)
+
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        return render(request,'myblog/home.html', context={'page_obj': page_obj}
         )
-# Create your views here.
+
+class DossierDetail(View):
+    def get(self, request, *args, **kwargs):
+        dossier = get_object_or_404(Dossier, id = )
+        return render(request, 'myblog/dossier_detail.html', context={
+            'dossier': dossier
+    })
