@@ -15,13 +15,13 @@
       {% for dossier in page_obj %}      
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="media/{{ dossier.photo }}" alt="" class="card-img-top">
+            <img src="media/{{ dossier.photo }}" alt="" style="height: 300px;" class="card-img-top">
             <div class="card-body">
               <h4 class="card-title">{{ dossier.name }}</h4>
               <p class="card-text">{{ dossier.description|truncatechars:100 }}</p>              
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="#" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                  <a href="{% url 'dossier_detail' dossier.id %}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
               </div>
               <small class="text-muted">28.12.2021</small>
             </div>

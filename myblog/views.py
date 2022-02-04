@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import Dossier
 from django.core.paginator import Paginator
+from .forms import SigUpForm
 
 class MainView(View):
     def get(self, request, *args, **kwargs):
@@ -20,3 +21,21 @@ class DossierDetail(View):
         return render(request, 'myblog/dossier_detail.html', context={
             'dossier': dossier
     })
+
+class SignUpView(View):
+    def get(self, request, *args, **kwargs):
+        form = SigUpForm()
+        return render(request, 'myblog/signup.html', context={
+            'form': form,
+        })
+
+    def post(self, request, *args, **kwargs):
+        form = SigUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect('/')
+        return render(request, 'myblog/signup.html', context={
+            'form': form,
+        })
