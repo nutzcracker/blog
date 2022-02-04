@@ -15,8 +15,8 @@ class MainView(View):
         )
 
 class DossierDetail(View):
-    def get(self, request, *args, **kwargs):
-        dossier = get_object_or_404(Dossier, id = )
+    def get(self, request, dossier_id, *args, **kwargs):
+        dossier = get_object_or_404(Dossier, id=dossier_id)
         return render(request, 'myblog/dossier_detail.html', context={
             'dossier': dossier
     })

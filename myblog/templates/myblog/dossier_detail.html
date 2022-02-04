@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}{{ dossier.name }}{% endblock %}
+
+{% block header %}
+    {% include './block/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.name }}</li>
+                </ol>
+            </nav>
+            <img class="img-fluid rounded " src="{{ dossier.photo.url }}" alt="">
+            <hr>
+            <p class="lead">
+            {{ dossier.description|safe }}
+            </p>
+            <hr>
+            <p class="lead text-right">Автор: Бурдюк</p>
+            <hr>
+            {% include './block/comments.html' %}
+        </div>
+        {% include './block/aside.html' %}
+    </div>
+</div>
+</div>
+{% endblock %}
