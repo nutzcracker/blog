@@ -1,10 +1,9 @@
-{% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <a href="#" class="navbar-brand">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="30" height="30" alt="logo">
   </a>
   <a href="#" class="navbar-brand">
-    <img src="{% static 'img/logo.png' %}" width="30" height="30" alt="logo">
+    <img src="https://nuxtjs.org/logos/nuxt-square-white.svg" width="30" height="30" alt="logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -16,16 +15,20 @@
       <li class="nav-item active">
         <a href="{% url 'index' %}" class="nav-link">Главная</a>
       </li>
-      <li class="nav-item ">
-        <a href="#" class="nav-link">Контакты</a>
+      <li class="nav-item active ">
+        <a href="{% url 'contact' %}" class="nav-link">Контакты</a>
       </li>
     </ul>
     <form action="" class="form-inline my-2 my-lg-0">
       <input type="text" class="form-control mr-sm-2" placeholder="Поиск" aria-label="Поиск">
       <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">Поиск</button>
     </form>
-    <a href="#" class="btn btn-outline-light mr-2">Вход</a>
+    {% if user.is_authenticated %}
+    <span class="navbar-text mr-2">{{ user }}</span>
+    <a href="{% url 'signout' %}" class="btn btn-outline-light">Выход</a>
+    {% else %}
+    <a href="{% url 'signin' %}" class="btn btn-outline-light mr-2">Вход</a>
     <a href="{% url 'signup' %}" class="btn btn-outline-light mr-2">Регистрация</a>
-    <a href="#" class="btn btn-outline-light">Выход</a>
+    {% endif %}
   </div>
 </nav>
