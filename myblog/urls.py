@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import MainView, DossierDetail, SignUpView, SignInView, FeedBackView, SuccessView, SearchResultsView
+from .views import ( MainView, DossierDetail, SignUpView, SignInView, FeedBackView, SuccessView,
+SearchResultsView, TagView )
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth.views import LogoutView
@@ -13,6 +14,7 @@ urlpatterns = [
     path('contact/', FeedBackView.as_view(), name='contact'),
     path('contact/success/', SuccessView.as_view(), name='success'),
     path('search/', SearchResultsView.as_view(), name='search_results'),
+    path('tag/<dossier_id>/', TagView.as_view(), name="tag"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

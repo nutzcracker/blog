@@ -9,11 +9,12 @@ from .forms import FeedBackForm
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from django.db.models import Q
+from taggit.models import Tag
 
 class MainView(View):
     def get(self, request, *args, **kwargs):
         dossiers = Dossier.objects.all()
-        paginator = Paginator(dossiers, 3)
+        paginator = Paginator(dossiers, 6)
 
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -104,8 +105,22 @@ class SearchResultsView(View):
             results = Dossier.objects.filter(
                 Q(name__icontains=query) | Q(description__icontains=query)
             )
+        paginator = Paginator(results, 6)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
         return render(request, 'myblog/search.html', context={
             'title': 'Поиск',
-            'results': results,
-            'count': len(results)
+            'results': page_obj,
+            'count': paginator.count
+        })
+
+class TagView(View):
+    def get(self, request, id, *args, **kwargs):
+        tag = get_object_or_404(Tag, id=id)
+        posts = Dossier.objects.filter(tag=tag)
+        common_tags = Dossier.tag.most_common()
+        return render(request, 'myblog/tag.html', context={
+            'title': f'#ТЕГ {tag}',
+            'posts': posts,
+            'common_tags': common_tags
         })
