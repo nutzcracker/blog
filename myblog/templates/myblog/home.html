@@ -20,7 +20,7 @@
               <h4 class="card-title">{{ dossier.name }}</h4>
               <p class="card-text">{{ dossier.description|truncatechars:100 }}</p>
               {% for tag in dossier.tag.all %}
-                  <a href="{% url 'tag' tag.id %}" class="mr-1 badge badge-info">#{{ tag }}</a>
+                  <a href="{% url 'tag' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
               {% endfor %}          
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">

@@ -1,15 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from .models import Dossier
+from .models import Dossier, Comment
 from django.core.paginator import Paginator
-from .forms import SigUpForm, SignInForm
+from .forms import SigUpForm, SignInForm, FeedBackForm, CommentForm
 from django.contrib.auth import login, authenticate
-from django.http import HttpResponseRedirect
-from .forms import FeedBackForm
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from django.db.models import Q
 from taggit.models import Tag
+
 
 class MainView(View):
     def get(self, request, *args, **kwargs):
@@ -25,9 +24,27 @@ class MainView(View):
 class DossierDetail(View):
     def get(self, request, dossier_id, *args, **kwargs):
         dossier = get_object_or_404(Dossier, id=dossier_id)
+        common_tags = Dossier.tag.most_common()
+        last_dossiers = Dossier.objects.all().order_by('-id')[:3]
+        comment_form = CommentForm()
         return render(request, 'myblog/dossier_detail.html', context={
-            'dossier': dossier
+            'dossier': dossier,
+            'common_tags' : common_tags,
+            'last_dossiers' : last_dossiers,
+            'comment_form': comment_form,
     })
+
+    def post(self, request, dossier_id, *args, **kwargs):
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            text = request.POST['text']
+            username = self.request.user
+            dossier = get_object_or_404(Dossier, id=dossier_id)
+            comment = Comment.objects.create(dossier=dossier, username=username, text=text)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        return render(request, 'myblog/post_detail.html', context={
+            'comment_form': comment_form
+        })
 
 class SignUpView(View):
     def get(self, request, *args, **kwargs):
@@ -115,8 +132,8 @@ class SearchResultsView(View):
         })
 
 class TagView(View):
-    def get(self, request, id, *args, **kwargs):
-        tag = get_object_or_404(Tag, id=id)
+    def get(self, request, slug, *args, **kwargs):
+        tag = get_object_or_404(Tag, slug=slug)
         posts = Dossier.objects.filter(tag=tag)
         common_tags = Dossier.tag.most_common()
         return render(request, 'myblog/tag.html', context={

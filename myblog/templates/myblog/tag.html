@@ -10,7 +10,7 @@
 <div class="container">
     <p class="my-3">Другие теги:
         {% for mt in common_tags %}
-             <a href="{% url 'tag' mt.id %}" class="badge badge-success">#{{mt}}</a>
+             <a href="{% url 'tag' mt.slug %}" class="badge badge-success">#{{mt}}</a>
         {% endfor %}
     </p>
     <div class="row">
@@ -22,11 +22,11 @@
               <h4 class="card-title">{{ dossier.name }}</h4>
               {{ dossier.description|safe|truncatechars:100 }}<br>
               {% for tag in dossier.tag.all %}
-                  <a href="{% url 'tag' tag.id %}" class="mr-1 badge badge-info">#{{ tag }}</a>
+                  <a href="{% url 'tag' tag.slug %}" class="mr-1 badge badge-info">#{{ tag }}</a>
               {% endfor %}
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{% url 'dossier_detail' id=post.id %}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                  <a href="{% url 'dossier_detail' dossier.id %}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
                 </div>
                 <small class="text-muted">{{ post.created_at }}</small>
               </div>

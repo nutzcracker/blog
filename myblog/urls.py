@@ -10,11 +10,11 @@ urlpatterns = [
     path('blog/<int:dossier_id>/', DossierDetail.as_view(), name='dossier_detail'),
     path('signup/', SignUpView.as_view(), name='signup'),
     path('signin/', SignInView.as_view(), name='signin'),
-    path('signout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='signout',),
+    path('signout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='signout'),
     path('contact/', FeedBackView.as_view(), name='contact'),
     path('contact/success/', SuccessView.as_view(), name='success'),
     path('search/', SearchResultsView.as_view(), name='search_results'),
-    path('tag/<dossier_id>/', TagView.as_view(), name="tag"),
+    path('tag/<slug:slug>/', TagView.as_view(), name='tag'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
